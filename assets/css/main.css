@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Ninya Flower Shop - Premium Romantic Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
+
+/* Color & Variable Architecture */
+:root {
+    --bg-warm: #FCFBF7;
+    --bg-white: #FFFFFF;
+    --primary-blush: #FDF6F6;
+    --accent-blush: #F6D6D6;
+    --sage-green: #8FA89B;
+    --sage-light: #EBF1EB;
+    --champagne: #F3EFE9;
+    --gold: #C5A059;
+    --gold-hover: #D4AF37;
+    --text-charcoal: #3A322F;
+    --text-muted: #7E7471;
+    --text-white: #FFFFFF;
+    --shadow-soft: 0 10px 30px rgba(58, 50, 47, 0.04);
+    --shadow-hover: 0 15px 40px rgba(58, 50, 47, 0.09);
+    --border-soft: 1px solid rgba(143, 168, 155, 0.15);
+    --border-beige: 1px solid rgba(243, 239, 233, 0.9);
+    
+    /* Layout Rhythm */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.25s ease;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-warm);
+    color: var(--text-charcoal);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+}
+
+/* Premium Typography Layout */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    color: var(--text-charcoal);
+}
+
+.section-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--sage-green);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: block;
+}
+
+/* Elegant Editorial Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--text-charcoal);
+    color: var(--bg-warm);
+}
+
+.btn-primary:hover {
+    background-color: var(--gold);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-charcoal);
+    border: 1px solid var(--text-charcoal);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-charcoal);
+    color: var(--bg-warm);
+    transform: translateY(-2px);
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--bg-white);
+}
+
+.btn-gold:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Glassmorphic Navbar Overlay */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(243, 239, 233, 0.0);
+}
+
+.navbar-wrapper.scrolled {
+    background: rgba(252, 251, 247, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(143, 168, 155, 0.1);
+    box-shadow: 0 5px 20px rgba(58, 50, 47, 0.02);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.navbar-wrapper.scrolled .navbar-container {
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--text-charcoal);
+}
+
+.logo span {
+    color: var(--gold);
+    font-size: 1.4rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--text-charcoal);
+    opacity: 0.8;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+    color: var(--gold);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-icon {
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--text-charcoal);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.nav-icon:hover {
+    color: var(--gold);
+}
+
+.nav-icon .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--gold);
+    color: var(--bg-white);
+    font-size: 0.65rem;
+    font-family: var(--font-sans);
+    padding: 0.1rem 0.35rem;
+    border-radius: 50%;
+}
+
+/* Beautiful Inputs & Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    color: var(--text-charcoal);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background-color: var(--bg-white);
+    border: 1px solid rgba(143, 168, 155, 0.2);
+    font-size: 0.9rem;
+    color: var(--text-charcoal);
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.07);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Common Layout Grids */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .nav-links { display: none; } /* Handle mobile drawer in JS */
+    .section-title { font-size: 2.2rem; }
+}
+
+/* Alerts System */
+.alert {
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+}
+
+.alert-success {
+    background-color: var(--sage-light);
+    color: #3b503f;
+    border-left: 4px solid var(--sage-green);
+}
+
+.alert-error {
+    background-color: #fcebeb;
+    color: #8c3b3b;
+    border-left: 4px solid #d9534f;
+}

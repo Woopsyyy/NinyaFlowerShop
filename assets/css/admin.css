@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Ninya Flower Shop - Shopify-style Minimalist Admin CSS
+   ========================================================================== */
+
+:root {
+    --admin-bg: #F4F6F8;
+    --admin-sidebar-bg: #1A1F2C;
+    --admin-text-light: #A0AEC0;
+    --admin-border: #E2E8F0;
+    --success: #48BB78;
+    --warning: #ECC94B;
+    --danger: #F56565;
+    --info: #4299E1;
+}
+
+body.admin-body {
+    background-color: var(--admin-bg);
+    color: #2D3748;
+}
+
+/* Layout Framework */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Menu */
+.admin-sidebar {
+    width: 260px;
+    background-color: var(--admin-sidebar-bg);
+    color: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-sidebar-header {
+    padding: 2rem;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-sidebar-header span {
+    color: var(--gold);
+}
+
+.admin-menu {
+    list-style: none;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    color: var(--admin-text-light);
+    border-radius: 6px;
+    transition: var(--transition-fast);
+}
+
+.admin-menu-link:hover, .admin-menu-link.active {
+    background-color: rgba(255,255,255,0.05);
+    color: var(--bg-white);
+}
+
+.admin-menu-link i {
+    font-size: 1rem;
+    width: 20px;
+}
+
+/* Main Workspace */
+.admin-content {
+    flex: 1;
+    margin-left: 260px;
+    padding: 2.5rem;
+    min-width: 0; /* Prevent flex blowout */
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.admin-title {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-charcoal);
+}
+
+/* Summary Metric Cards */
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.metric-card {
+    background: var(--bg-white);
+    border: 1px solid var(--admin-border);
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.006);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.metric-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-charcoal);
+}
+
+.metric-trend {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.trend-up { color: var(--success); }
+.trend-down { color: var(--danger); }
+
+/* SaaS Data Table */
+.admin-card {
+    background: var(--bg-white);
+    border: 1px solid var(--admin-border);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-premium {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.table-premium th {
+    padding: 1rem;
+    border-bottom: 2px solid var(--admin-border);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.table-premium td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--admin-border);
+    vertical-align: middle;
+}
+
+.table-premium tr:hover td {
+    background-color: rgba(244, 246, 248, 0.5);
+}
+
+/* Beautiful Status Badges */
+.badge-status {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+}
+
+.badge-pending { background-color: #FEFCBF; color: #B7791F; }
+.badge-confirmed { background-color: #C6F6D5; color: #22543D; }
+.badge-preparing { background-color: #E2E8F0; color: #4A5568; }
+.badge-outfordelivery { background-color: #EBF8FF; color: #2B6CB0; }
+.badge-delivered { background-color: #C6F6D5; color: #2F855A; }
+.badge-cancelled { background-color: #FED7D7; color: #9B2C2C; }
+
+/* SVG Graph Containers */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.chart-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-axis {
+    stroke: var(--admin-border);
+    stroke-width: 1;
+}
+
+.chart-line {
+    stroke: var(--gold);
+    stroke-width: 3;
+    fill: none;
+}
+
+.chart-area {
+    fill: rgba(197, 160, 89, 0.06);
+}
+
+.chart-grid {
+    stroke: rgba(226, 232, 240, 0.5);
+    stroke-width: 1;
+    stroke-dasharray: 4;
+}
+
+.chart-label {
+    font-size: 0.65rem;
+    fill: var(--text-muted);
+    font-family: var(--font-sans);
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .admin-sidebar { width: 70px; }
+    .admin-sidebar-header, .admin-menu-link span { display: none; }
+    .admin-content { margin-left: 70px; }
+    .metric-grid { grid-template-columns: 1fr; }
+}
